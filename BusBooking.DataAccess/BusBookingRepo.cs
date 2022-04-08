@@ -49,7 +49,7 @@ namespace BusBooking.DataAccess
             var item = dBContext.BusBookings.Where(a => a.Id == id).FirstOrDefault();
             if (item != null)
             {
-                if(noOfSeats <= item.Seats)
+                if(noOfSeats <= item.Seats && item.IsAvailable = 1)
                 {
                     item.Seats = item.Seats - noOfSeats;
 
