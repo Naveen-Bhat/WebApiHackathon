@@ -22,6 +22,13 @@ namespace BusBooking.Controllers
             return Ok(buses);
 
         }
+        [HttpGet(Name = "GetAvailableBusList")]
+        public IActionResult GetAvailableBusList()
+        {
+            var availableBuses = busRepo.GetAvailable();
+            return Ok(availableBuses);
+
+        }
 
         [HttpPost(Name = "AddBus")]
         public async Task<IActionResult> AddBus(string Name, int seats, bool isAvailableForBooking, string type)
